@@ -28,8 +28,13 @@ class DevolverCambio {
         System.out.println(cambioBilleteDiez + " billete(s) de 10 €");
 
         int cambioBilleteCinco = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20) - (cambioBilleteDiez * 10)) / 5;
-        System.out.println(cambioBilleteCinco + " billete(s) de 5");
+        System.out.println(cambioBilleteCinco + " billete(s) de 5 €");
 
+        int cambioMonedaDos = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20) - (cambioBilleteDiez * 10) - (cambioBilleteCinco * 5)) / 2;
+        System.out.println(cambioMonedaDos + " moneda(s) de 2 €");
+
+        int cambioMonedaUno = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20) - (cambioBilleteDiez * 10) - (cambioBilleteCinco * 5) - (cambioMonedaDos * 2)) / 1;
+        System.out.println(cambioMonedaUno + " moneda(s) de 1 €");
 
         scanner.close();
     }
