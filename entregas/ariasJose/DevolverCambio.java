@@ -10,10 +10,11 @@ class DevolverCambio {
         System.out.println("¿Con cuántos euros paga?");
         double eurosPago = scanner.nextDouble();
 
-        System.out.println(eurosPorPagar + " " + eurosPago);
+        double diferenciaPagoSinRedondear = (eurosPago-eurosPorPagar) * 100;
 
-        double diferenciaPago = eurosPago - eurosPorPagar; 
-        System.out.println(diferenciaPago);
+
+        double diferenciaPago = Math.round(diferenciaPagoSinRedondear);
+        diferenciaPago = diferenciaPago / 100; 
 
         final int VALOR_BILLETE_CIEN = 100;
         final int VALOR_BILLETE_CINCUENTA = 50; 
@@ -22,12 +23,12 @@ class DevolverCambio {
         final int VALOR_BILLETE_CINCO = 5;
         final int VALOR_MONEDA_DOS = 2;
         final int VALOR_MONEDA_UNO = 1;
-        final double VALOR_MONEDA_CINCUENTA_CENTIMOS = 0.50;
-        final double VALOR_MONEDA_VEINTE_CENTIMOS = 0.20;
-        final double VALOR_MONEDA_DIEZ_CENTIMOS = 0.10;
-        final double VALOR_MONEDA_CINCO_CENTIMOS = 0.05;
-        final double VALOR_MONEDA_DOS_CENTIMOS = 0.02;
-        final double VALOR_MONEDA_UN_CENTIMO = 0.01;
+        final double VALOR_MONEDA_CINCUENTA_CENTIMOS = 50;
+        final double VALOR_MONEDA_VEINTE_CENTIMOS = 20;
+        final double VALOR_MONEDA_DIEZ_CENTIMOS = 10;
+        final double VALOR_MONEDA_CINCO_CENTIMOS = 5;
+        final double VALOR_MONEDA_DOS_CENTIMOS = 2;
+        final double VALOR_MONEDA_UN_CENTIMO = 1;
         final String MENSAJE_BILLETES = " billete(s) de ";
         final String MENSAJE_MONEDAS = " moneda(s) de ";
         final String EUROS = " €";
@@ -59,24 +60,30 @@ class DevolverCambio {
         int cambioMonedaUnEuro = (int) (diferenciaPago / VALOR_MONEDA_UNO);
         diferenciaPago = diferenciaPago - (cambioMonedaUnEuro * VALOR_MONEDA_UNO);
         System.out.println(cambioMonedaUnEuro + MENSAJE_MONEDAS + VALOR_MONEDA_UNO + EUROS);
+        diferenciaPago = diferenciaPago * 100;
 
-        double cambioMonedaCincuentaCentimos = diferenciaPago / VALOR_MONEDA_CINCUENTA_CENTIMOS;
+        int cambioMonedaCincuentaCentimos = (int) (diferenciaPago / VALOR_MONEDA_CINCUENTA_CENTIMOS);
         diferenciaPago = diferenciaPago - (cambioMonedaCincuentaCentimos / VALOR_MONEDA_CINCUENTA_CENTIMOS);
         System.out.println(cambioMonedaCincuentaCentimos + MENSAJE_MONEDAS + VALOR_MONEDA_CINCUENTA_CENTIMOS + EUROS);
 
-        double cambioMonedaVeinteCentimos = diferenciaPago / VALOR_MONEDA_VEINTE_CENTIMOS;
+        double cambioMonedaVeinteCentimos = (int)(diferenciaPago / VALOR_MONEDA_VEINTE_CENTIMOS);
         diferenciaPago = diferenciaPago - (cambioMonedaVeinteCentimos * VALOR_MONEDA_VEINTE_CENTIMOS);
         System.out.println(cambioMonedaVeinteCentimos + MENSAJE_MONEDAS + VALOR_MONEDA_VEINTE_CENTIMOS + EUROS);
 
-        double cambioMonedaDiezCentimos = diferenciaPago / VALOR_MONEDA_DIEZ_CENTIMOS;
+        double cambioMonedaDiezCentimos = (int)(diferenciaPago / VALOR_MONEDA_DIEZ_CENTIMOS);
         diferenciaPago = diferenciaPago - (cambioMonedaDiezCentimos * VALOR_MONEDA_DIEZ_CENTIMOS);
         System.out.println(cambioMonedaDiezCentimos + MENSAJE_MONEDAS + VALOR_MONEDA_DIEZ_CENTIMOS + EUROS);
 
-        double cambioMonedaCincoCentimos = diferenciaPago / VALOR_MONEDA_CINCO_CENTIMOS;
+        double cambioMonedaCincoCentimos = (int)(diferenciaPago / VALOR_MONEDA_CINCO_CENTIMOS);
         diferenciaPago = diferenciaPago - (cambioMonedaCincoCentimos * VALOR_MONEDA_CINCO_CENTIMOS);
         System.out.println(cambioMonedaCincoCentimos + MENSAJE_MONEDAS + VALOR_MONEDA_CINCO_CENTIMOS + EUROS);
 
-        
+        double cambioMonedaDosCentimos = (int)(diferenciaPago / VALOR_MONEDA_DOS_CENTIMOS);
+        diferenciaPago = diferenciaPago - (cambioMonedaDosCentimos * VALOR_MONEDA_DOS_CENTIMOS);
+        System.out.println(cambioMonedaDosCentimos + MENSAJE_MONEDAS + VALOR_MONEDA_DOS_CENTIMOS + EUROS);
+
+        double cambioMonedaUnCentimo = (int) (diferenciaPago / VALOR_MONEDA_UN_CENTIMO);
+        System.out.println(cambioMonedaUnCentimo + MENSAJE_MONEDAS + VALOR_MONEDA_UN_CENTIMO + EUROS);
 
         scanner.close();
     }
