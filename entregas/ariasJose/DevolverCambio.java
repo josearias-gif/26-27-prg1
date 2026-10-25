@@ -17,23 +17,29 @@ class DevolverCambio {
 
         int cambioBilleteCien = diferenciaPago / 100;
         System.out.println(cambioBilleteCien + " billete(s) de 100 €");
+        diferenciaPago = diferenciaPago - (cambioBilleteCien * 100);
 
-        int cambioBilleteCincuenta = (diferenciaPago - (cambioBilleteCien * 100)) / 50;
+        int cambioBilleteCincuenta = diferenciaPago / 50;
         System.out.println(cambioBilleteCincuenta + " billete(s) de 50 €");
+        diferenciaPago = diferenciaPago - (cambioBilleteCincuenta * 50);
 
-        int cambioBilleteVeinte = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50)) / 20;
+        int cambioBilleteVeinte = diferenciaPago / 20;
         System.out.println(cambioBilleteVeinte + " billete(s) de 20 €");
+        diferenciaPago = diferenciaPago - (cambioBilleteVeinte * 20);
 
-        int cambioBilleteDiez = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20)) / 10;
+        int cambioBilleteDiez = diferenciaPago / 10;
         System.out.println(cambioBilleteDiez + " billete(s) de 10 €");
+        diferenciaPago = diferenciaPago - (cambioBilleteDiez * 10);
 
-        int cambioBilleteCinco = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20) - (cambioBilleteDiez * 10)) / 5;
+        int cambioBilleteCinco = diferenciaPago / 5;
         System.out.println(cambioBilleteCinco + " billete(s) de 5 €");
+        diferenciaPago = diferenciaPago - (cambioBilleteCinco * 5);
 
-        int cambioMonedaDos = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20) - (cambioBilleteDiez * 10) - (cambioBilleteCinco * 5)) / 2;
+        int cambioMonedaDos = diferenciaPago / 2;
         System.out.println(cambioMonedaDos + " moneda(s) de 2 €");
+        diferenciaPago = diferenciaPago - (cambioMonedaDos * 2);
 
-        int cambioMonedaUno = (diferenciaPago - (cambioBilleteCien * 100) - (cambioBilleteCincuenta * 50) - (cambioBilleteVeinte * 20) - (cambioBilleteDiez * 10) - (cambioBilleteCinco * 5) - (cambioMonedaDos * 2)) / 1;
+        int cambioMonedaUno = diferenciaPago / 1;
         System.out.println(cambioMonedaUno + " moneda(s) de 1 €");
 
         scanner.close();
