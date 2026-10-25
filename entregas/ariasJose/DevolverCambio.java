@@ -12,6 +12,13 @@ class DevolverCambio {
 
         System.out.println(eurosPorPagar + " " + eurosPago);
 
+        int diferenciaPago = eurosPago - eurosPorPagar; 
+        System.out.println(diferenciaPago);
+
+        int cambioBilleteCien = diferenciaPago / 100;
+        System.out.println(cambioBilleteCien + " billete(s) de 100 €");
+
+
         scanner.close();
     }
 }
